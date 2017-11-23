@@ -1,0 +1,34 @@
+{
+    "name": "yodorada/php-webservice-rest-api",
+    "type": "project",
+    "description": "A small RESTful Webservice in PHP",
+    "keywords":["rest","php"],
+    "homepage":"http://eins23.tv/",
+    "license": "LGPL-3.0+",
+    "authors" : [
+        {
+            "name": "Maya K. Herrmann | EINS[23].TV",
+            "homepage": "https://eins23.tv"
+        }
+    ],
+    "version": "0.1.3",
+    "require": {
+        "php": ">=5.6.0",
+        "swiftmailer/swiftmailer": "^5.2.1",
+        "ircmaxell/password-compat": "^1.0",
+        "yodorada/mysqli-db-webservice": "dev-master",
+        "firebase/php-jwt": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yodorada\\": "webservice/",
+            "Yodorada\\Classes\\": "webservice/classes/",
+            "Yodorada\\Controller\\": "webservice/controller/",
+            "Yodorada\\Models\\": "webservice/models/",
+            "Yodorada\\Modules\\": "webservice/modules/"
+        }
+    },
+    "minimum-stability":"dev",
+    "prefer-stable": true
+    
+}

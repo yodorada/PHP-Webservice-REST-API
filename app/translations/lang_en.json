@@ -1,0 +1,118 @@
+{
+	"misc": {
+		"webservice": {
+			"name": "eins23.tv Webservice",
+			"self_info": "RESTful API w/ 'Basic' and 'Token' based HTTP Authorization. See resources for available services.",
+			"no_route": "Showing available resources.",
+			"output_format": "Content-Type expected: 'application/json' or 'application/x-www-form-urlencoded'",
+			"no_controller": "There is no resource behind the URI."
+		}
+	},
+	"models": {
+		"explanation": {
+			"valid_json": "Value must be a valid JSON object",
+			"rights": "Value must be a valid JSON object containing boolean values for methods",
+			"groups_role": "Value must be one of: 100 or admins, 200 or editors, 300 or users"
+		},
+		"inputcheck": {
+			"accepted": "Value provided for %s must be: %s",
+			"explanation": "Field %s > %s",
+			"duplicate": "Entry for field %s in %s already exists.",
+			"required": "Field %s must not be empty."
+		}
+	},
+	"controller": {
+		"account": {
+			"self_info": "This ressource manages the service user's account."
+		},
+		"files": {
+			"self_info": "This ressource manages files.",
+			"no_uploads": "No files were uploaded.",
+			"no_resource": "The file record with ID %s could not be found.",
+			"wrong_filetype": "Uploaded filetype must be one of: %s",
+			"filename_long": "Uploaded name of file is too long."
+		},
+		"groups": {
+			"self_info": "This ressource manages the group accounts.",
+			"no_resource": "The group entry with ID %s could not be found.",
+			"no_access_superior": "Can not access superior or other than own group.",
+			"groupname_exists": "A group with that name already exists.",
+			"no_self_edit": "Forbidden to edit your user group.",
+			"no_self_delete": "Can not delete own group.",
+			"no_delete": "Can not delete this group.",
+			"required_data": "Required data: groupname, role"
+		},
+		"groupsrights": {
+			"self_info": "This ressource manages group rights.",
+			"no_resource": "The group rights entry with ID %s could not be found.",
+			"no_parent": "The parent group entry with ID %s could not be found.",
+			"needs_parent": "A group must be provided.",
+			"no_access_superior": "Can not access superior group.",
+			"no_parent_match": "The group ID and rights ID do not match.",
+			"no_self_edit": "Forbidden to edit your user group."
+		},
+		"misc": {
+			"needs_id": "An identifier must be provided."
+		},
+		"login": {
+			"self_info": "This ressource returns login data if authenticated."
+		},
+		"logs": {
+			"self_info": "This ressource displays the system logs (currently limited to the last 100 records).",
+			"no_access": "Can not access logs.",
+			"no_resource": "The log entry with ID %s could not be found."
+		},
+		"users": {
+			"self_info": "This ressource manages the user accounts.",
+			"needs_parent": "A group must be provided.",
+			"parent_must_exist": "The group does not exist.",
+			"username_exists": "The username already exists.",
+			"username_or_email_exists": "Username or email already exists.",
+			"no_self_delete": "Can not delete own entrx.",
+			"no_delete_in_group": "Can not delete users from this group.",
+			"no_resource": "The users entry with ID %s could not be found.",
+			"no_access_superior": "Can not access users from superior group.",
+			"edit_via_account": "Please edit your profile via ./account resource.",
+			"required_data": "Required data: password, username, email"
+		},
+		"usersrights": {
+			"self_info": "This ressource manages user rights.",
+			"no_resource": "The user rights entry with ID %s could not be found.",
+			"no_parent": "The parent user entry with ID %s could not be found.",
+			"needs_parent": "A user must be provided.",
+			"no_access_superior": "Can not access superior group.",
+			"no_parent_match": "The user ID and rights ID do not match.",
+			"no_self_edit": "Forbidden to edit your user group."
+		}
+	},
+	"errors": {
+		"codes": {
+			"400": "The request could not be understood by the server due to malformed syntax.",
+			"401": "Authentification failed.",
+			"403": "Not authorized to perform the operation or the resource is unavailable.",
+			"404": "The server has not found anything matching the Request-URI.",
+			"405": "Current method is not allowed.",
+			"409": "The request could not be completed due to a conflict with the current state of the resource.",
+			"422": "The server encountered a validation error or an unprocessable entity.",
+			"500": "The server encountered an unexpected condition which prevented it from fulfilling the request.'"
+		},
+		"delete": {
+
+		},
+		"get": {
+
+		},
+		"misc": {
+			"allowed_methods": "A problem with allowed methods occurred. Please contact your Sys-Admin.",
+			"invalid_json_input": "The JSON input is not valid.",
+			"no_data": "No data was provided for this method.",
+			"call_gfdb": "A problem occured. Please contact GFDB."
+		},
+		"post": {
+
+		},
+		"put": {
+
+		}
+	}
+}

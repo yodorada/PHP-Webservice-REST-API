@@ -1,0 +1,117 @@
+{
+	"misc": {
+		"webservice": {
+			"name": "eins23.tv Webservice",
+			"self_info": "RESTful API mit 'Basic' und 'Token' basierter HTTP Autorisation.",
+			"no_route": "Zeige verfügbare Ressourcen.",
+			"output_format": "Content-Type erwartet: 'application/json' oder 'application/x-www-form-urlencoded'",
+			"no_controller": "Unter dieser URI ist keine Ressource verfügbar"
+		}
+	},
+	"models": {
+		"explanation": {
+			"valid_json": "Eingabe muss ein gültiges JSON-Objekt sein",
+			"rights": "Eingabe muss ein gültiges JSON-Objekt sein, das boolesche Werte für Methoden enthält",
+			"groups_role": "Eingabe muss einer folgender Werte sein: 100 oder admins, 200 oder editors, 300 oder users"
+		},
+		"inputcheck": {
+			"accepted": "Eingabe für Feld %s muss sein: %s",
+			"explanation": "Feld %s > %s",
+			"duplicate": "Eingabe für Feld %s in DB %s existiert bereits.",
+			"required": "Feld %s darf nicht leer sein."
+		}
+	},
+	"controller": {
+		"account": {
+			"self_info": "Diese Ressource verwaltet das Konto des Webservice-Benutzers."
+		},
+		"files": {
+			"self_info": "Diese Ressource verwaltet Dateien.",
+			"no_uploads": "Es wurden keine Dateien hochgeladen.",
+			"no_resource": "Der Datensatz mit ID %s konnte nicht gefunden werden.",
+			"wrong_filetype": "Hochgeladener Dateityp muss einer folgender Werte sein: %s",
+			"filename_long": "Der Name der hochgeladenen Datei ist zu lang."
+		},
+		"groups": {
+			"self_info": "Diese Ressource verwaltet die Gruppenkonten.",
+			"no_resource": "Der Gruppen-Datensatz mit ID %s konnte nicht gefunden werden.",
+			"no_access_superior": "Kann nicht auf übergeordnete oder andere als die eigene Gruppe zugreifen.",
+			"groupname_exists": "Eine Gruppe mit diesem Namen existiert bereits.",
+			"no_self_edit": "Verboten, Ihre Benutzergruppe zu bearbeiten.",
+			"no_self_delete": "Die eigene Gruppe kann nicht gelöscht werden.",
+			"no_delete": "Diese Gruppe kann nicht gelöscht werden.",
+			"required_data": "Erforderliche Daten: groupname, role"
+		},
+		"groupsrights": {
+			"self_info": "Diese Ressource verwaltet Gruppenrechte.",
+			"no_resource": "Der Gruppenrechte-Datensatz mit ID %s konnte nicht gefunden werden.",
+			"no_parent": "Der übergeordnete GruppenDatensatz mit ID %s konnte nicht gefunden werden.",
+			"needs_parent": "Eine Gruppe (ID) muss angegeben werden.",
+			"no_access_superior": "Kann nicht auf eine übergeordnete Gruppe zugreifen.",
+			"no_parent_match": "Die Gruppen-ID und die Rechte-ID stimmen nicht überein.",
+			"no_self_edit": "Verboten, Ihre Benutzergruppe zu bearbeiten."
+		},
+		"misc": {
+			"needs_id": "Ein Bezeichner (ID) muss angegeben werden."
+		},
+		"login": {
+			"self_info": "Diese Ressource gibt die Anmeldedaten zurück, wenn der Benutzer authentifiziert ist."
+		},
+		"logs": {
+			"self_info": "Diese Ressource zeigt die System-Logs an.",
+			"no_access": "Kann nicht auf Logs zugreifen.",
+			"no_resource": "Der Log-Datensatz mit ID %s konnte nicht gefunden werden."
+		},
+		"users": {
+			"self_info": "Diese Ressource verwaltet die Benutzerkonten.",
+			"needs_parent": "Eine Gruppe (ID) muss angegeben werden.",
+			"parent_must_exist": "Die Gruppe existiert nicht.",
+			"username_exists": "Der Benutzername existiert bereits.",
+			"username_or_email_exists": "Benutzername oder E-Mail existiert bereits.",
+			"no_self_delete": "Der eigene Datensatz kann nicht gelöscht werden.",
+			"no_delete_in_group": "Benutzer aus dieser Gruppe können nicht gelöscht werden.",
+			"no_resource": "Der Benutzer-Datensatz mit ID %s konnte nicht gefunden werden.",
+			"no_access_superior": "Kann nicht auf Benutzer von übergeordneter Gruppe zugreifen.",
+			"edit_via_account": "Bitte bearbeiten Sie Ihr Profil über die ./account Ressource.",
+			"required_data": "Erforderliche Daten: password, username, email"
+		},
+		"usersrights": {
+			"self_info": "Diese Ressource verwaltet Benutzerrechte.",
+			"no_resource": "Der Benutzerrechte-Datensatz mit ID %s konnte nicht gefunden werden.",
+			"no_parent": "Der übergeordnete Benutzer-Datensatz mit ID %s konnte nicht gefunden werden.",
+			"needs_parent": "Ein Benutzer muss (ID) muss angegeben werden.",
+			"no_access_superior": "Kann nicht auf eine übergeordnete Gruppe zugreifen.",
+			"no_parent_match": "Die Benutzer-ID und die Rechte-ID stimmen nicht überein.",
+			"no_self_edit": "Verboten, Ihre Benutzergruppe zu bearbeiten."
+		}
+	},
+	"errors": {
+		"codes": {
+			"400": "Die Anforderung konnte vom Server wegen fehlerhafter Syntax nicht verstanden werden.",
+			"401": "Die Authentifizierung ist fehlgeschlagen.",
+			"403": "Nicht berechtigt, diese Operation auszuführen oder die Ressource ist nicht verfügbar.",
+			"404": "Der Server hat nichts gefunden, was der Request-URI entspricht.",
+			"405": "Die aktuelle Methode ist nicht erlaubt.",
+			"409": "Die Anforderung konnte aufgrund eines Konflikts mit dem aktuellen Stand der Ressource nicht abgeschlossen werden.",
+			"422": "Der Server hat einen Validierungsfehler oder eine nicht verarbeitete Entität festgestellt.",
+			"500": "Der Server stieß auf eine unerwartete Bedingung, die ihn daran hinderte, die Anfrage zu erfüllen.'"
+		},
+		"delete": {
+
+		},
+		"get": {
+
+		},
+		"misc": {
+			"allowed_methods": "Ein Problem mit zulässigen Methoden trat auf. Bitte wenden Sie sich an Ihren Sys-Admin.",
+			"invalid_json_input": "Das übertragene JSON-Objekt ist ungültig.",
+			"no_data": "Für diese Methode wurden keine Daten bereitgestellt."
+		},
+		"post": {
+
+		},
+		"put": {
+
+		}
+	}
+}
