@@ -11,7 +11,7 @@ A tiny and simple RESTful API w/ "Basic" and "Token" based HTTP Authorization.
 **PHP-JWT » [on GitHub](https://github.com/firebase/php-jwt)**  
 A simple library to encode and decode JSON Web Tokens (JWT)  
 
-**MysqliDb » [on GitHub](https://github.com/dottorekaha/PHP-MySQLi-Database-Class)**  
+**MysqliDb » [on GitHub](https://github.com/yodorada/PHP-MySQLi-Database-Class)**  
 Simple MySQLi wrapper and object mapper with prepared statements.
 
 **Swift Mailer » [Homepage](http://swiftmailer.org)**  
