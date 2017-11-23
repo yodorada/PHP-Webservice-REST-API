@@ -12,5 +12,6 @@ nbproject/
 logs/
 
 app/vendor/*
+app/composer.lock
 
 public/assets/uploads

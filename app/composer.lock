@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a502407db171fab64cfb1252f2f15a0",
+    "content-hash": "a54aca58bc7db72ef5e8172572de48bc",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -92,62 +92,17 @@
             "time": "2014-11-20T16:49:30+00:00"
         },
         {
-            "name": "joshcam/mysqli-database-class",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/joshcam/PHP-MySQLi-Database-Class.git",
-                "reference": "240a4fd51da09d428da4b60904a3fa919445808b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/joshcam/PHP-MySQLi-Database-Class/zipball/240a4fd51da09d428da4b60904a3fa919445808b",
-                "reference": "240a4fd51da09d428da4b60904a3fa919445808b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "MysqliDb.php",
-                    "dbObject.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Josh Campbell",
-                    "email": "josh.lee.campbell@gmail.com",
-                    "homepage": "https://github.com/joshcam",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Alexander V. Butenko",
-                    "email": "a.butenka@gmail.com",
-                    "homepage": "http://smarttechdo.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHP MySQL Wrapper and object mapper which utilizes MySQLi and prepared statements",
-            "time": "2017-03-18 11:45:58"
-        },
-        {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.6",
+            "version": "v5.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e"
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
-                "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/9a06dc570a0367850280eefd3f1dc2da45aef517",
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517",
                 "shasum": ""
             },
             "require": {
@@ -188,14 +143,65 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-02-13T07:52:53+00:00"
+            "time": "2017-05-01T15:54:03+00:00"
+        },
+        {
+            "name": "yodorada/mysqli-db-webservice",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yodorada/PHP-MySQLi-Database-Class.git",
+                "reference": "e4e5d42226242e304de78325025c53fe270843db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yodorada/PHP-MySQLi-Database-Class/zipball/e4e5d42226242e304de78325025c53fe270843db",
+                "reference": "e4e5d42226242e304de78325025c53fe270843db",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "MysqliDb.php",
+                    "dbObject.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Campbell",
+                    "email": "josh.lee.campbell@gmail.com",
+                    "homepage": "https://github.com/joshcam",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Alexander V. Butenko",
+                    "email": "a.butenka@gmail.com",
+                    "homepage": "http://smarttechdo.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Maya K. Herrmann",
+                    "email": "maya.k.herrmann@gmail.com",
+                    "homepage": "http://eins23.tv",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP MySQL Wrapper and object mapper which utilizes MySQLi and prepared statements. This repo was forked from ThingEngineer and was slightly modified to fit the needs of my tiny Webservice REST-API.",
+            "time": "2017-11-23 16:13:04"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "joshcam/mysqli-database-class": 20
+        "yodorada/mysqli-db-webservice": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
