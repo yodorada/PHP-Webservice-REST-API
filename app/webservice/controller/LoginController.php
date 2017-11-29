@@ -30,7 +30,7 @@ class LoginController extends Controller implements ControllerInterface
 
     protected $selfInfo = 'controller.login.self_info';
 
-    public static $version = '0.2.0';
+    public static $version = '0.2.1';
     /**
      * method GET
      *
@@ -47,6 +47,7 @@ class LoginController extends Controller implements ControllerInterface
             'tokenExpires' => Utils::timestampToOutput(ServiceUser::get('accessToken')['expiresAt']),
         );
 
+        // add some extra fields to your return array if logged user is not of group "user" but "editors" or "admins"
         if ((int) ServiceUser::getRole() != ServiceUser::ROLE_USERS) {
             $n['rights'] = ServiceUser::get('rights');
             $n['email'] = ServiceUser::get('email');
@@ -56,6 +57,8 @@ class LoginController extends Controller implements ControllerInterface
                 $n['rights'] = array();
             }
         }
+
+        // add some extra fields to your return array if logged user of group "admins"
         if ((int) ServiceUser::getRole() == ServiceUser::ROLE_ADMINS) {
             $n['config'] = array(
                 'applicationHost' => $GLOBALS['CONFIG']['APPLICATION']['HOST'],
@@ -66,10 +69,19 @@ class LoginController extends Controller implements ControllerInterface
 
         if (
             ServiceUser::getRole() == ServiceUser::ROLE_USERS &&
-            Setting::get('realm') == base64_encode($GLOBALS['CONFIG']['API']['FRONTEND_KEY']) &&
-            Setting::get('route')[0] == 'authorized'
+            Setting::get('realm') == base64_encode($GLOBALS['CONFIG']['API']['FRONTEND_KEY'])
         ) {
-            return $n;
+            if (Setting::get('route')[0] == 'authorized') {
+                // route is "authorized" and was requested from the frontend app
+                // to check if current standard user login is still valid
+                // return array with username, token, tokenExpires
+                return $n;
+            } else if (Setting::get('route')[0] == 'login') {
+                // here you can add some extra content/fields to the return array
+                // that you can store for example in localStorage in your frontend app
+                //
+                // $n = array_merge(array('foo' => 'bar'), $n);
+            }
         }
 
         // save lastlogin time
@@ -78,7 +90,7 @@ class LoginController extends Controller implements ControllerInterface
         $user->save();
 
         return $n;
-        // todo: return additional fields
+
     }
 
     /**
