@@ -173,6 +173,17 @@ class Headers
     }
 
     /**
+     * set Strict Transport Security
+     *
+     * @param   int $expire time, in seconds, that the browser should remember that a site is only to be accessed using HTTPS.
+     *
+     */
+    public static function strictTransportSecurity($expire = 31536000)
+    {
+        header('Strict-Transport-Security: max-age=' . $expire);
+    }
+
+    /**
      * set token return
      *
      * @param   array $token

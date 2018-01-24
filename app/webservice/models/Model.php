@@ -228,7 +228,7 @@ class Model extends dbObject
         foreach ($filters as $key => $value) {
             if (array_key_exists($key, $fData)) {
 
-                if ($fData['type'] == 'bool') {
+                if (array_key_exists('data', $fData) && $fData['type'] == 'bool') {
                     if (!isset($db)) {
                         $db = static::where($key, ($value == 'false' ? 0 : 1));
                     } else {

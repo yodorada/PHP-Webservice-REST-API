@@ -201,6 +201,11 @@ class WebService extends Core
             }
         }
 
+        // tell the browser to remember that this site is only to be accessed using HTTPS.
+        if ($GLOBALS['CONFIG']['API']['USE_SSL']) {
+            Headers::strictTransportSecurity();
+        }
+
         // class string
         $classLoader = "Yodorada\Controller\\" . $controller['controller'] . "Controller";
         // instantiate the controller
