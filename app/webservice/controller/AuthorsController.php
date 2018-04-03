@@ -3,7 +3,7 @@
 /*
  * Part of PHP-Webservice-REST-API
  *
- * Copyright (c) Maya K. Herrmann | EINS[23].TV
+ * Copyright (c) Maya K. Herrmann | Yodorada
  *
  * @license LGPL-3.0+
  */
@@ -11,13 +11,14 @@
 namespace Yodorada\Controller;
 
 use Yodorada\Classes\Errors;
+use Yodorada\Classes\Translate;
 use Yodorada\Models\AuthorsModel;
 
 /**
  * class AuthorsController
  * @package   Yodorada\Webservice
- * @author    EINS[23].TV | Maya K. Herrmann <maya.k.herrmann@gmail.com>
- * @copyright EINS[23].TV, 2017
+ * @author    Yodorada | Maya K. Herrmann <maya.k.herrmann@gmail.com>
+ * @copyright Yodorada, 2017
  * @version 0.0.2
  *
  * CustomController classes must provide functions: get, post, put, delete, fields
@@ -25,7 +26,7 @@ use Yodorada\Models\AuthorsModel;
 class AuthorsController extends Controller implements ControllerInterface
 {
 
-    protected $selfInfo = 'This ressource manages the Authors entries.';
+    protected $selfInfo = 'controller.authors.self_info';
 
     public static $version = '0.0.2';
 
@@ -39,7 +40,7 @@ class AuthorsController extends Controller implements ControllerInterface
             // show single author entry
             $entries = AuthorsModel::byId($this->resourceId);
             if (!count($entries)) {
-                Errors::exitNotFound('The author entry with ID ' . $this->resourceId . ' could not be found.');
+                Errors::exitNotFound(Translate::get('controller.authors.no_resource', $this->resourceId));
             }
             return $entries->makeArray();
         }
@@ -84,7 +85,7 @@ class AuthorsController extends Controller implements ControllerInterface
         if ($this->resourceId) {
             $entries = AuthorsModel::byId($this->resourceId);
             if (!count($entries)) {
-                Errors::exitNotFound('The author entry with ID ' . $this->resourceId . ' could not be found.');
+                Errors::exitNotFound(Translate::get('controller.authors.no_resource', $this->resourceId));
             }
 
             $newData = $entries->prepareUpdate();
@@ -100,7 +101,7 @@ class AuthorsController extends Controller implements ControllerInterface
             // return new object
             return $entries->makeArray();
         } else {
-            Errors::exitBadRequest('An identifier must be provided.');
+            Errors::exitBadRequest(Translate::get('controller.authors.needs_id'));
         }
     }
 
@@ -113,7 +114,7 @@ class AuthorsController extends Controller implements ControllerInterface
         if ($this->resourceId) {
             $entries = AuthorsModel::byId($this->resourceId);
             if (!count($entries)) {
-                Errors::exitNotFound('The author entry with ID ' . $this->resourceId . ' could not be found.');
+                Errors::exitNotFound(Translate::get('controller.authors.no_resource', $this->resourceId));
             }
 
             $status = $entries->deleteWithChildren();
@@ -123,7 +124,7 @@ class AuthorsController extends Controller implements ControllerInterface
             }
             return $entries->makeArray();
         } else {
-            Errors::exitBadRequest('An identifier must be provided.');
+            Errors::exitBadRequest(Translate::get('controller.authors.needs_id'));
         }
 
     }

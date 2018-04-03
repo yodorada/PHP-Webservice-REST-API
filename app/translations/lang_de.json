@@ -1,11 +1,22 @@
 {
 	"misc": {
 		"webservice": {
-			"name": "eins23.tv Webservice",
+			"name": "yodorada.de Webservice",
 			"self_info": "RESTful API mit 'Basic' und 'Token' basierter HTTP Autorisation.",
 			"no_route": "Zeige verfügbare Ressourcen.",
 			"output_format": "Content-Type erwartet: 'application/json' oder 'application/x-www-form-urlencoded'",
 			"no_controller": "Unter dieser URI ist keine Ressource verfügbar"
+		}
+	},
+	"pages": {
+		"resetpassword": {
+			"title": "Yodorada - Passwort zurücksetzen",
+			"resetted": "Ihr Passwort wurde erfolgreich zurückgesetzt.",
+			"headline": "Neues Passwort vergeben",
+			"label_newpassword": "Neues Passwort",
+			"label_confirm": "Passwort bestätigen",
+			"submit": "Passwort zurücksetzen »",
+			"hint": "Hinweis: Ihr Passwort muss aus mindestens 8 Zeichen bestehen und mindestens eine Zahl enthalten."
 		}
 	},
 	"models": {
@@ -25,12 +36,32 @@
 		"account": {
 			"self_info": "Diese Ressource verwaltet das Konto des Webservice-Benutzers."
 		},
+		"authors": {
+			"self_info": "Diese Ressource verwaltet die Autoren Einträge.",
+			"no_resource": "Der Datensatz mit ID %s konnte nicht gefunden werden."
+		},
+		"authorsaphorisms": {
+			"self_info": "This ressource manages the aphorism entries.",
+			"no_resource": "Der Datensatz mit ID %s konnte nicht gefunden werden.",
+			"no_parent": "Der übergeordnete Autorendatensatz mit ID %s konnte nicht gefunden werden.",
+			"needs_parent": "Ein Autorendatensatz (ID) muss angegeben werden.",
+		},
 		"files": {
 			"self_info": "Diese Ressource verwaltet Dateien.",
 			"no_uploads": "Es wurden keine Dateien hochgeladen.",
 			"no_resource": "Der Datensatz mit ID %s konnte nicht gefunden werden.",
 			"wrong_filetype": "Hochgeladener Dateityp muss einer folgender Werte sein: %s",
 			"filename_long": "Der Name der hochgeladenen Datei ist zu lang."
+		},
+		"forgot": {
+			"self_info": "Diese Ressource löst den Prozess zum Zurücksetzen des Kennworts aus.",
+			"no_resource": "Der Datensatz mit ID %s konnte nicht gefunden werden.",
+			"only_frontend": "Nur Frontend-Benutzer können das Passwort zurücksetzen.",
+			"unknown": "Unbekannter Benutzer und/oder Email.",
+			"name_and_mail": "Benutzername und Email müssen angegeben werden.",
+			"error_sending": "Ein Fehler beim Email-Versand ist aufgetreten.",
+			"email_subject": "Yodorada: Zurücksetzen Ihres Benutzerkonto-Passworts",
+			"email_body": "Hallo %s,\n\nes wurde soeben der Link zum Zurücksetzen des Passworts Ihres Yodorada Benutzerkontos angefordert.\n\nFalls Sie keine Passwort-Änderung beabsichtigen, können Sie diese Nachricht ignorieren und müssen nichts weiter unternehmen.\n\nUm Ihr Passwort zurückzusetzen, besuchen Sie bitte folgende Adresse:\n%s\n\nBeste Grüsse, Ihr Yodorada Team"
 		},
 		"groups": {
 			"self_info": "Diese Ressource verwaltet die Gruppenkonten.",

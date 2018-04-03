@@ -3,7 +3,7 @@
 /*
  * Part of PHP-Webservice-REST-API
  *
- * Copyright (c) Maya K. Herrmann | EINS[23].TV
+ * Copyright (c) Maya K. Herrmann | Yodorada
  *
  * @license LGPL-3.0+
  */
@@ -13,8 +13,8 @@ namespace Yodorada\Models;
 /**
  * model UserRights for database table PREFIX.'user_rights'
  * @package   Yodorada\Webservice
- * @author    EINS[23].TV | Maya K. Herrmann <maya.k.herrmann@gmail.com>
- * @copyright EINS[23].TV, 2017
+ * @author    Yodorada | Maya K. Herrmann <maya.k.herrmann@gmail.com>
+ * @copyright Yodorada, 2017
  * @version 0.0.1
  */
 class UsersRightsModel extends Model

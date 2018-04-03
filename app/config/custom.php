@@ -3,7 +3,7 @@
 /*
  * Part of PHP-Webservice-REST-API
  *
- * Copyright (c) Maya K. Herrmann | EINS[23].TV
+ * Copyright (c) Maya K. Herrmann | Yodorada
  *
  * @license LGPL-3.0+
  */

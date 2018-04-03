@@ -3,7 +3,7 @@
 /*
  * Part of PHP-Webservice-REST-API
  *
- * Copyright (c) Maya K. Herrmann | EINS[23].TV
+ * Copyright (c) Maya K. Herrmann | Yodorada
  *
  * @license LGPL-3.0+
  */
@@ -17,8 +17,8 @@ use Yodorada\Models\AuthorsModel;
 /**
  * class AuthorsAphorismsController
  * @package   Yodorada\Webservice
- * @author    EINS[23].TV | Maya K. Herrmann <maya.k.herrmann@gmail.com>
- * @copyright EINS[23].TV, 2017
+ * @author    Yodorada | Maya K. Herrmann <maya.k.herrmann@gmail.com>
+ * @copyright Yodorada, 2017
  * @version 0.0.2
  *
  * CustomController classes must provide functions: get, post, put, delete, fields
@@ -26,7 +26,7 @@ use Yodorada\Models\AuthorsModel;
 class AuthorsAphorismsController extends Controller implements ControllerInterface
 {
 
-    protected $selfInfo = 'This ressource manages the aphorism entries.';
+    protected $selfInfo = 'controller.authorsaphorisms.self_info';
 
     public static $version = '0.0.2';
 
@@ -39,14 +39,14 @@ class AuthorsAphorismsController extends Controller implements ControllerInterfa
 
         // check if parent id must be set
         if (!$this->needsAndHasParent()) {
-            Errors::exitBadRequest('An author must be provided.');
+            Errors::exitBadRequest(Translate::get('controller.authorsaphorisms.needs_parent'));
         }
 
         if ($this->resourceId) {
             // show single aphorism entry
             $entries = AuthorsAphorismsModel::byId($this->resourceId);
             if (!count($entries)) {
-                Errors::exitNotFound('The aphorism entry with ID ' . $this->resourceId . ' could not be found.');
+                Errors::exitNotFound(Translate::get('controller.authorsaphorisms.no_resource', $this->resourceId));
             }
             return $entries;
         }
@@ -79,13 +79,13 @@ class AuthorsAphorismsController extends Controller implements ControllerInterfa
     {
         // check if parent id is available
         if (!$this->parentId) {
-            Errors::exitBadRequest('An author must be provided.');
+            Errors::exitBadRequest(Translate::get('controller.authorsaphorisms.needs_parent'));
         }
 
         $author = AuthorsModel::byId($this->parentId);
         if (!count($author)) {
             // fail, author does not exist
-            Errors::exitBadRequest('The author does not exist.');
+            Errors::exitBadRequest(Translate::get('controller.authorsaphorisms.no_parent'));
         }
 
         $newData = AuthorsAphorismsModel::newResource();
@@ -107,9 +107,14 @@ class AuthorsAphorismsController extends Controller implements ControllerInterfa
     public function put()
     {
         if ($this->resourceId && $this->parentId) {
-            $entries = AuthorsAphorismsModel::byIdAndParent($this->resourceId, $this->parentId);
+            $author = AuthorsModel::byId($this->parentId);
+            if (!count($author)) {
+                // fail, author does not exist
+                Errors::exitBadRequest(Translate::get('controller.authorsaphorisms.no_parent'));
+            }
+            $entries = AuthorsAphorismsModel::byId($this->resourceId);
             if (!count($entries)) {
-                Errors::exitNotFound('The aphorism entry with ID ' . $this->resourceId . ' and parent ID ' . $this->parentId . ' could not be found.');
+                Errors::exitNotFound(Translate::get('controller.authorsaphorisms.no_resource', $this->resourceId));
             }
 
             $newData = $entries->prepareUpdate();
@@ -124,7 +129,7 @@ class AuthorsAphorismsController extends Controller implements ControllerInterfa
             // return new object
             return $entries->makeArray();
         } else {
-            Errors::exitBadRequest('An identifier must be provided.');
+            Errors::exitBadRequest(Translate::get('controller.misc.needs_id'));
         }
     }
 
@@ -138,7 +143,7 @@ class AuthorsAphorismsController extends Controller implements ControllerInterfa
         if ($this->resourceId) {
             $entries = AuthorsAphorismsModel::byId($this->resourceId);
             if (!count($entries)) {
-                Errors::exitNotFound('The aphorism entry with ID ' . $this->resourceId . ' could not be found.');
+                Errors::exitNotFound(Translate::get('controller.authorsaphorisms.no_resource', $this->resourceId));
             }
 
             $status = $entries->delete();
@@ -148,7 +153,7 @@ class AuthorsAphorismsController extends Controller implements ControllerInterfa
             }
             return $entries->makeArray();
         } else {
-            Errors::exitBadRequest('An identifier must be provided.');
+            Errors::exitBadRequest(Translate::get('controller.misc.needs_id'));
         }
         return true;
     }

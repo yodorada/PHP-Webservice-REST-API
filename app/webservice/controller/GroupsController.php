@@ -3,7 +3,7 @@
 /*
  * Part of PHP-Webservice-REST-API
  *
- * Copyright (c) Maya K. Herrmann | EINS[23].TV
+ * Copyright (c) Maya K. Herrmann | Yodorada
  *
  * @license LGPL-3.0+
  */
@@ -24,8 +24,8 @@ use Yodorada\Modules\ServiceUser;
 /**
  * class GroupsController
  * @package   Yodorada\Webservice
- * @author    EINS[23].TV | Maya K. Herrmann <maya.k.herrmann@gmail.com>
- * @copyright EINS[23].TV, 2017
+ * @author    Yodorada | Maya K. Herrmann <maya.k.herrmann@gmail.com>
+ * @copyright Yodorada, 2017
  * @version 0.2.0
  */
 class GroupsController extends Controller implements ControllerInterface
@@ -247,7 +247,7 @@ class GroupsController extends Controller implements ControllerInterface
         if ($this->resourceId) {
             $group = GroupsModel::byId($this->resourceId);
             if (!count($group)) {
-                Errors::exitNotFound('There is no group with ID ' . $this->resourceId . '.');
+                Errors::exitNotFound(Translate::get('controller.groups.no_resource', $this->resourceId));
             }
 
             // can not delete own group

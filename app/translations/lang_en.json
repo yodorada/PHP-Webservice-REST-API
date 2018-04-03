@@ -1,11 +1,22 @@
 {
 	"misc": {
 		"webservice": {
-			"name": "eins23.tv Webservice",
+			"name": "yodorada.de Webservice",
 			"self_info": "RESTful API w/ 'Basic' and 'Token' based HTTP Authorization. See resources for available services.",
 			"no_route": "Showing available resources.",
 			"output_format": "Content-Type expected: 'application/json' or 'application/x-www-form-urlencoded'",
 			"no_controller": "There is no resource behind the URI."
+		}
+	},
+	"pages": {
+		"resetpassword": {
+			"title": "Yodorada - Reset password",
+			"resetted": "Your password was successfully resetted.",
+			"headline": "Your new password",
+			"label_newpassword": "Enter new password",
+			"label_confirm": "Confirm new password",
+			"submit": "Reset password »",
+			"hint": "Note: Your password must be at least 8 characters and contain at least one number."
 		}
 	},
 	"models": {
@@ -24,6 +35,26 @@
 	"controller": {
 		"account": {
 			"self_info": "This ressource manages the service user's account."
+		},
+		"authors": {
+			"self_info": "This ressource manages the Authors entries.",
+			"no_resource": "The authors entry with ID %s could not be found.",
+		},
+		"authorsaphorisms": {
+			"self_info": "This ressource manages the aphorism entries.",
+			"no_resource": "The aphorism entry with ID %s could not be found.",
+			"no_parent": "The parent entry with ID %s could not be found.",
+			"needs_parent": "An author must be provided.",
+		},
+		"forgot": {
+			"self_info": "This ressource triggers the password reset process.",
+			"no_resource": "The ressource entry with ID %s could not be found.",
+			"only_frontend": "Only frontend user may change their password.",
+			"unknown": "Unknown user and/or email.",
+			"name_and_mail": "Username and email must be provided.",
+			"error_sending": "An error when sending occured.",
+			"email_subject": "Yodorada: Reset your account password",
+			"email_body": "Hello %s,\n\nthe link to reset the password of your Yodorada account has just been requested.\n\nIf you do not intend to change the password, you can ignore this message and do not need to do anything else.\n\nTo reset your password, please visit the following address:\n%s\n\nAll best, your Yodorada Team"
 		},
 		"files": {
 			"self_info": "This ressource manages files.",

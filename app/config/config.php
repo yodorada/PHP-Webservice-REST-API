@@ -3,7 +3,7 @@
 /*
  * Part of PHP-Webservice-REST-API
  *
- * Copyright (c) Maya K. Herrmann | EINS[23].TV
+ * Copyright (c) Maya K. Herrmann | Yodorada
  *
  * @license LGPL-3.0+
  */
@@ -43,3 +43,15 @@ $GLOBALS['CONFIG']['DATA']['VERSION'] = '1.1';
 $GLOBALS['CONFIG']['UPLOADS']['BASE64'] = true; // if true, the upload controller expects base64 encoded media like so: { src: ...base64-string... , title: filename }
 $GLOBALS['CONFIG']['UPLOADS']['ALLOWED'] = 'jpg|jpeg|png|gif|svg|pdf'; // separate filetypes with |
 $GLOBALS['CONFIG']['UPLOADS']['PATH'] = 'assets/uploads'; // standard is "assets/uploads" inside dir public/
+/**
+ * EMAIL SPECS
+ */
+$GLOBALS['CONFIG']['MAILER']['USE_SWIFT'] = true; // using swiftmailer (or sendmail when false)
+$GLOBALS['CONFIG']['MAILER']['USE_SMTP'] = false; // using swiftmailers smtp (or sendmail when false)
+$GLOBALS['CONFIG']['MAILER']['SMTP_HOST'] = ''; // required when smtp = true
+$GLOBALS['CONFIG']['MAILER']['SMTP_USERNAME'] = ''; // required when smtp = true
+$GLOBALS['CONFIG']['MAILER']['SMTP_PASSWORD'] = ''; // required when smtp = true
+$GLOBALS['CONFIG']['MAILER']['MAIL_FROM'] = ''; // set default sender's address
+$GLOBALS['CONFIG']['MAILER']['MAIL_FROM_NAME'] = ''; // set default sender's name
+$GLOBALS['CONFIG']['MAILER']['MAIL_REPLYTO'] = ''; // set default replyto address (if empty the sender's address will be used)
+$GLOBALS['CONFIG']['MAILER']['MAIL_SUBJECT'] = ''; // set default email subject

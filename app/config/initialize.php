@@ -3,7 +3,7 @@
 /*
  * Part of PHP-Webservice-REST-API
  *
- * Copyright (c) Maya K. Herrmann | EINS[23].TV
+ * Copyright (c) Maya K. Herrmann | Yodorada
  *
  * @license LGPL-3.0+
  */
@@ -36,6 +36,16 @@ Registry::register(
             ),
             "controller" => "Login",
             "authorization" => "R",
+            "system" => true,
+        ),
+        "forgot" => array(
+            "self" => "forgot",
+            "routes" => array(
+                "{self}" => "U",
+                "{self}/info" => "R",
+            ),
+            "controller" => "Forgot",
+            "authorization" => "",
             "system" => true,
         ),
         "login" => array(

@@ -1,4 +1,4 @@
-Usage & Extending eins23 WebService
+Usage & Extending Yodorada WebService
 ===================================
 
 ### Example controller and modules

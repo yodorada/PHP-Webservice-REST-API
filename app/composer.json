@@ -3,12 +3,12 @@
     "type": "project",
     "description": "A small RESTful Webservice in PHP",
     "keywords":["rest","php"],
-    "homepage":"http://eins23.tv/",
+    "homepage":"http://yodorada.tv/",
     "license": "LGPL-3.0+",
     "authors" : [
         {
-            "name": "Maya K. Herrmann | EINS[23].TV",
-            "homepage": "https://eins23.tv"
+            "name": "Maya K. Herrmann | Yodorada",
+            "homepage": "https://yodorada.de"
         }
     ],
     "version": "0.1.3",
