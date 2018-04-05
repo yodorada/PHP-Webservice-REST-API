@@ -16,7 +16,7 @@ namespace Yodorada\Classes;
  * Provide input data settings
  *
  * This static class gets the php://input and processes it
- * into key value pairs.
+ * into key value pairs (if input is valid json).
  *
  * usage:
  * $username = Input::get('username');
