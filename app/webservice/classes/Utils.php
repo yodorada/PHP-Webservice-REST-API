@@ -87,6 +87,23 @@ class Utils
     }
 
     /**
+     * check if password meets requirements
+     *
+     * @param string $pw unencrypted password
+     *
+     * @return bool
+     *
+     */
+    public static function checkPasswordRequirements($pw)
+    {
+        preg_match('/^(?=.*[0-9])([a-zA-Z0-9.\-_]){8,}$/', $pw, $pwCheck);
+        if (!count($pwCheck)) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * password hash
      *
      * @param string $pw unencrypted password

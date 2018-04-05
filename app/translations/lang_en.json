@@ -19,6 +19,16 @@
 			"hint": "Note: Your password must be at least 8 characters and contain at least one number."
 		}
 	},
+	"modules": {
+		"resetpassword": {
+			"linkexpired": "The link for resetting your password has expired.",
+			"invalidlink": "This Link is not valid.",
+			"enterpassword": "Please enter a password.",
+			"enterpasswordconfirm": "Please confirm your password.",
+			"confirmerror": "Both password entries must match.",
+			"passwordrequirements": "The entered password does not meet the requirements (see note below)."
+		}
+	},
 	"models": {
 		"explanation": {
 			"valid_json": "Value must be a valid JSON object",
@@ -38,13 +48,13 @@
 		},
 		"authors": {
 			"self_info": "This ressource manages the Authors entries.",
-			"no_resource": "The authors entry with ID %s could not be found.",
+			"no_resource": "The authors entry with ID %s could not be found."
 		},
 		"authorsaphorisms": {
 			"self_info": "This ressource manages the aphorism entries.",
 			"no_resource": "The aphorism entry with ID %s could not be found.",
 			"no_parent": "The parent entry with ID %s could not be found.",
-			"needs_parent": "An author must be provided.",
+			"needs_parent": "An author must be provided."
 		},
 		"forgot": {
 			"self_info": "This ressource triggers the password reset process.",

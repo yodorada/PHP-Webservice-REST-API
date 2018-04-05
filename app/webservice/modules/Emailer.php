@@ -14,6 +14,7 @@ use \Swift_Mailer;
 use \Swift_MailTransport;
 use \Swift_Message;
 use \Swift_SmtpTransport;
+use \Swift_Validate;
 
 /**
  * class Emailer
@@ -96,7 +97,14 @@ class Emailer
      */
     public function send()
     {
-
+        if (
+            !Swift_Validate::email($this->get('from')) ||
+            !Swift_Validate::email($this->get('to')) ||
+            ($this->get('cc') && !Swift_Validate::email($this->get('cc'))) ||
+            ($this->get('bcc') && !Swift_Validate::email($this->get('bcc')))
+        ) {
+            throw new \Exception('Yodorada\Emailer could not send email due to faulty email address(es).');
+        }
         if ($this->get('fromName') != '') {
             $this->swiftMsg->setFrom(
                 array(
@@ -109,14 +117,17 @@ class Emailer
 
         foreach ($this->arrData as $key => $value) {
             switch ($key) {
+                case 'to':
+                    $this->swiftMsg->setTo($value);
+                    break;
                 case 'cc':
-                    $this->swiftMsg->setCc($this->checkValidMail($value));
+                    $this->swiftMsg->setCc($value);
                     break;
                 case 'bcc':
-                    $this->swiftMsg->setBcc($this->checkValidMail($value));
+                    $this->swiftMsg->setBcc($value);
                     break;
                 case 'replyTo':
-                    $this->swiftMsg->setReplyTo($this->checkValidMail($value));
+                    $this->swiftMsg->setReplyTo($value);
                     break;
                 case 'subject':
                     $this->swiftMsg->setSubject($this->get('subject'));

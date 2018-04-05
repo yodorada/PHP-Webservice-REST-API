@@ -15,14 +15,17 @@
 
 require __DIR__ . '/../../app/vendor/autoload.php';
 /** load database login etc */
-include_once __DIR__ . '/../../app/config/config.php';
+include_once __DIR__ . '/../../app/config/initialize.php';
 
+use Yodorada\Classes\Database;
 use Yodorada\Classes\Headers;
 use Yodorada\Classes\Translate;
 use Yodorada\Classes\Utils;
 use Yodorada\Modules\ResetPassword;
 
 Headers::contentType('text/html');
+Translate::initialize();
+Database::initialize();
 ResetPassword::initialize();
 
 /*
@@ -61,7 +64,7 @@ ResetPassword::initialize();
                 <div id="inner">
 
                 	<?php if (ResetPassword::get('error') !== null): ?>
-						<div class="errorMsg"><?php echo ResetPassword::get('error'); ?></div>
+						<div class="errorMsg"><?php echo Translate::get(ResetPassword::get('error')); ?></div>
 					<?php endif;?>
 
                 	<?php if (ResetPassword::valid()): ?>

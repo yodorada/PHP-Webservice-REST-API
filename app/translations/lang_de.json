@@ -19,6 +19,16 @@
 			"hint": "Hinweis: Ihr Passwort muss aus mindestens 8 Zeichen bestehen und mindestens eine Zahl enthalten."
 		}
 	},
+	"modules": {
+		"resetpassword": {
+			"linkexpired": "Der Link zum Zurücksetzen des Passwortes ist bereits abgelaufen.",
+			"invalidlink": "Dieser Link ist ungültig.",
+			"enterpassword": "Bitte ein Passwort angeben.",
+			"enterpasswordconfirm": "Bitte das Passwort zweimal eingeben.",
+			"confirmerror": "Die beiden Passwörter müssen übereinstimmen.",
+			"passwordrequirements": "Das eingegebene Passwort entspricht nicht den Anforderungen (siehe Hinweis weiter unten)."
+		}
+	},
 	"models": {
 		"explanation": {
 			"valid_json": "Eingabe muss ein gültiges JSON-Objekt sein",
@@ -44,7 +54,7 @@
 			"self_info": "This ressource manages the aphorism entries.",
 			"no_resource": "Der Datensatz mit ID %s konnte nicht gefunden werden.",
 			"no_parent": "Der übergeordnete Autorendatensatz mit ID %s konnte nicht gefunden werden.",
-			"needs_parent": "Ein Autorendatensatz (ID) muss angegeben werden.",
+			"needs_parent": "Ein Autorendatensatz (ID) muss angegeben werden."
 		},
 		"files": {
 			"self_info": "Diese Ressource verwaltet Dateien.",

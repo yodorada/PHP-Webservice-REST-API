@@ -12,12 +12,11 @@ namespace Yodorada\Controller;
 
 use Yodorada\Classes\Errors;
 use Yodorada\Classes\Input;
-use Yodorada\Classes\Setting;
+use Yodorada\Classes\Translate;
 use Yodorada\Classes\Utils;
 use Yodorada\Models\GroupsModel;
 use Yodorada\Models\UsersModel;
 use Yodorada\Modules\Emailer;
-use Yodorada\Modules\ServiceUser;
 
 /**
  * class ForgotController
@@ -68,9 +67,9 @@ class ForgotController extends Controller implements ControllerInterface
 
             if (count($user)) {
                 $group = GroupsModel::byId($user->groupsId);
-                if (!count($group) || $group->role != ServiceUser::ROLE_EDITORS || (Setting::get('realm') && Setting::get('realm') != base64_encode($GLOBALS['CONFIG']['API']['FRONTEND_KEY']))) {
-                    Errors::exitBadRequest(Translate::get('controller.forgot.only_frontend'));
-                }
+                // if (!count($group) || $group->role != ServiceUser::ROLE_EDITORS || (Setting::get('realm') && Setting::get('realm') != base64_encode($GLOBALS['CONFIG']['API']['FRONTEND_KEY']))) {
+                //     Errors::exitBadRequest(Translate::get('controller.forgot.only_frontend'));
+                // }
                 $confirmationToken = md5(uniqid(rand(), true));
                 $passwordRequestedAt = time();
 
@@ -89,6 +88,7 @@ class ForgotController extends Controller implements ControllerInterface
                     $swift = new Emailer();
                     $swift->set('subject', $subject);
                     $swift->set('body', $message);
+                    $swift->set('to', $to);
 
                     $sendmail = $swift->send();
                     if (!$sendmail) {
@@ -107,11 +107,11 @@ class ForgotController extends Controller implements ControllerInterface
                 return array('reset' => true, 'email' => Input::get('email'), 'username' => Input::get('username'));
 
             } else {
-                Errors::exitBadRequest('controller.forgot.unknown');
+                Errors::exitBadRequest(Translate::get('controller.forgot.unknown'));
             }
 
         } else {
-            Errors::exitBadRequest('controller.forgot.name_and_mail');
+            Errors::exitBadRequest(Translate::get('controller.forgot.name_and_mail'));
         }
     }
 

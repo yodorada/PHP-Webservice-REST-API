@@ -56,8 +56,12 @@ class Translate
                 }
             }
         }
-        if (!isset($content)) {
+        if (!isset($content) || $content === null) {
+            $locale = 'en';
             $content = file_get_contents(__DIR__ . '/../../translations/lang_en.json');
+        }
+        if (!Utils::isJson($content)) {
+            throw new \Exception('Yodorada\Translate could not load proper JSON file. Please lint your lang_' . $locale . '.json file.');
         }
         static::$lang = json_decode($content, true);
     }
@@ -120,7 +124,6 @@ class Translate
         if (in_array($strKey, get_class_methods('\Yodorada\Classes\Translate'))) {
             static::$arrData[$strKey] = static::$strKey();
         }
-
         static::$arrData[$strKey] = static::findKey(static::$lang, explode(".", $strKey));
 
         if (func_num_args() > 1) {

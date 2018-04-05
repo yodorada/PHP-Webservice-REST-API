@@ -124,14 +124,14 @@ class ResetPassword
                     // check time
                     // token valid for 6 hours
                     if ($userModel->passwordRequestedAt < time() - 60 * 60 * 6) {
-                        static::$arrData['error'] = 'Der Link zum Zurücksetzen des Passwortes ist bereits abgelaufen.';
+                        static::$arrData['error'] = 'modules.resetpassword.linkexpired';
                         return;
                     }
                     $user = $userModel->toArray();
                     unset($user['password']);
                     static::$arrData['user'] = $user;
                 } else {
-                    static::$arrData['error'] = 'Dieser Link ist ungültig.';
+                    static::$arrData['error'] = 'modules.resetpassword.invalidlink';
                     return;
                 }
             }
@@ -149,21 +149,25 @@ class ResetPassword
             ) {
 
                 // check password input
-                if (!strlen($parameters['password']) || !strlen($parameters['passwordConfirm'])) {
-                    static::$arrData['error'] = 'Bitte ein Passwort angeben.';
+                if (!strlen($parameters['password'])) {
+                    static::$arrData['error'] = 'modules.resetpassword.enterpassword';
+                    return;
+                }
+                // check password input
+                if (!strlen($parameters['passwordConfirm'])) {
+                    static::$arrData['error'] = 'modules.resetpassword.enterpasswordconfirm';
                     return;
                 }
 
                 // check identical passwords
                 if ($parameters['password'] != $parameters['passwordConfirm']) {
-                    static::$arrData['error'] = 'Die beiden Passwörter müssen übereinstimmen.';
+                    static::$arrData['error'] = 'modules.resetpassword.confirmerror';
                     return;
                 }
 
                 // check password requirements
-                preg_match('/^(?=.*[0-9])([a-zA-Z0-9.\-_]){6,}$/', $parameters['password'], $pwCheck);
-                if (!count($pwCheck)) {
-                    static::$arrData['error'] = 'Das eingegebene Passwort entspricht nicht den Anforderungen (siehe Hinweis weiter unten).';
+                if (!Utils::checkPasswordRequirements($parameters['password'])) {
+                    static::$arrData['error'] = 'modules.resetpassword.passwordrequirements';
                     return;
                 }
 
