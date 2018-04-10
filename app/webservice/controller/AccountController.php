@@ -39,7 +39,7 @@ class AccountController extends Controller implements ControllerInterface
             // show service user
             $user = UsersModel::byId(ServiceUser::get('id'));
             if (!count($user)) {
-                Errors::exitNotFound(Translate::get('controller.users.no_resource', ServiceUser::get('id'));
+                Errors::exitNotFound(Translate::get('controller.users.no_resource', ServiceUser::get('id')));
             }
             $userArr = $user->makeArray();
             unset($userArr['location']);
