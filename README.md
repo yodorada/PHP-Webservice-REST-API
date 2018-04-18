@@ -16,7 +16,6 @@ Simple MySQLi wrapper and object mapper with prepared statements.
 
 **Swift Mailer » [Homepage](http://swiftmailer.org)**  
 A component based mailing solution for PHP 7 >= .  
-**Note: *not implemented yet***   
 
 ### Group- and User-Management
 
