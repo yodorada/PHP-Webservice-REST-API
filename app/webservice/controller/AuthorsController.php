@@ -124,7 +124,7 @@ class AuthorsController extends Controller implements ControllerInterface
             }
             return $entries->makeArray();
         } else {
-            Errors::exitBadRequest(Translate::get('controller.authors.needs_id'));
+            Errors::exitBadRequest(Translate::get('controller.misc.needs_id'));
         }
 
     }
